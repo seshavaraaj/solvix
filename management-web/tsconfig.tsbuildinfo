@@ -1,0 +1,1 @@
+{"root":["./src/api.ts","./src/auth.tsx","./src/format.ts","./src/i18n.tsx","./src/main.tsx","./src/types.ts","./src/components/caseactions.tsx","./src/components/layout.tsx","./src/components/bits.tsx","./src/pages/casepage.tsx","./src/pages/loginpage.tsx","./src/pages/mappage.tsx","./src/pages/queuepage.tsx","./src/pages/stuckpage.tsx","./vite.config.ts"],"version":"5.9.3"}

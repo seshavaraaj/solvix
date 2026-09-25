@@ -170,8 +170,8 @@ def seed_reports(db, users: dict, rng: random.Random, n: int = 50) -> None:
     for i in range(n):
         inside = rng.random() < 0.78
         district, taluk, village, lat, lon = rng.choice(PLACES_IN if inside else PLACES_OUT)
-        lat += rng.uniform(-0.002, 0.002)
-        lon += rng.uniform(-0.002, 0.002)
+        lat += rng.uniform(-0.005, 0.005)
+        lon += rng.uniform(-0.005, 0.005)
         asset_type = rng.choices(list(ASSET_WEIGHTS), weights=list(ASSET_WEIGHTS.values()))[0]
         citizen = rng.choice(users["citizens"])
         status = plan[i]

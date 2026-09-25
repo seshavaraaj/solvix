@@ -28,3 +28,18 @@ services:
         value: "123456"
       - key: CORS_ORIGINS
         value: "*"
+
+  - type: web
+    name: meetpu-portal
+    runtime: static
+    rootDir: management-web
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Public URL of meetpu-api, e.g. https://meetpu-api.onrender.com. Vite bakes it in at build time.
+      - key: VITE_API_URL
+        sync: false
