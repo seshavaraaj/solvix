@@ -1,0 +1,30 @@
+# Local fallback stack: PostGIS + API. Run: docker compose up --build
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: meetpu
+      POSTGRES_USER: meetpu
+      POSTGRES_PASSWORD: meetpu
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U meetpu -d meetpu"]
+      interval: 3s
+      retries: 20
+
+  api:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://meetpu:meetpu@db:5432/meetpu
+      JWT_SECRET: local-dev-secret-at-least-32-characters
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

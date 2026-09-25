@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "name": "michaung-2023-demo",
+  "properties": {
+    "event": "michaung-2023",
+    "source": "DEMO LAYER: hand-drawn approximation of Cyclone Michaung (Dec 2023) inundation in Chennai. Not an official product. Replace with Bhuvan/NDEM or Copernicus EMS extent."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "Velachery - Pallikaranai marsh"},
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [80.1950, 12.9900], [80.2180, 12.9960], [80.2330, 12.9850], [80.2380, 12.9620],
+        [80.2300, 12.9380], [80.2130, 12.9320], [80.1980, 12.9420], [80.1920, 12.9650],
+        [80.1950, 12.9900]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Mudichur - Varadharajapuram (Adyar upstream)"},
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [80.0550, 12.9330], [80.0800, 12.9380], [80.1050, 12.9300], [80.1080, 12.9100],
+        [80.0900, 12.8950], [80.0650, 12.8960], [80.0520, 12.9120], [80.0550, 12.9330]
+      ]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"name": "Manali - Ennore creek"},
+      "geometry": {"type": "Polygon", "coordinates": [[
+        [80.2550, 13.1950], [80.2850, 13.2080], [80.3120, 13.1980], [80.3080, 13.1650],
+        [80.2850, 13.1450], [80.2620, 13.1500], [80.2500, 13.1720], [80.2550, 13.1950]
+      ]]}
+    }
+  ]
+}

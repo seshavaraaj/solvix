@@ -1,0 +1,30 @@
+# Render blueprint: New > Blueprint, point at this repo.
+databases:
+  - name: meetpu-db
+    plan: free
+    databaseName: meetpu
+    user: meetpu
+
+services:
+  - type: web
+    name: meetpu-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    # Seed is idempotent; it also creates the postgis extension and tables.
+    startCommand: python -m seed.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DATABASE_URL
+        fromDatabase:
+          name: meetpu-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MOCK_OTP_CODE
+        value: "123456"
+      - key: CORS_ORIGINS
+        value: "*"
